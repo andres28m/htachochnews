@@ -589,7 +589,7 @@ iframe {
                 "hotlist": true,
                 "calendar": false,
                 "autosize": true,
-                "studies": ["MASimple@tv-basicstudies"]
+                "studies": ["MASimple@tv-basicstudies", "STD;Divergence%1Indicator"]
             });
         }
 
@@ -673,7 +673,7 @@ iframe {
                 const decimalPlaces = (coin === "FTMUSDT" || coin === "POPCATUSDT" || coin === "LQTYUSDT" || coin === "DOGSUSDT" || coin === "TONUSDT" || coin === "SHIBUSDT" || coin === "DOGEUSDT") ? 4 : 2;
 
                 const currentPrice = parseFloat(data.price).toFixed(4);
-                document.getElementById("price").innerText = `Precio actual: $${currentPrice}`;
+                document.getElementById("price").innerText = ` $${currentPrice}`;
                 updateChart(parseFloat(data.price));
 
                 // Actualiza el título de la pestaña con el precio actual
