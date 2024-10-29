@@ -406,18 +406,23 @@
             align-font: center;
         }
         
-        iframe {
-            width: 100%;
-            max-width: 600px;
-            height: 200px;
-            border: none;
-            /* Sin borde */
-            margin: 1;
-            align-items: center;
-            align-font: center;
-            padding: 1px;
-            margin: 0 auto;
-       }
+       iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    border: none;
+    margin: 0 auto; /* Centra el iframe horizontalmente */
+    display: block; /* Asegura que el margin auto funcione */
+    padding: 1px;
+}
+
+/* Asegúrate de que el contenido dentro del iframe esté centrado */
+iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
      
 
         
