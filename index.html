@@ -1196,22 +1196,32 @@ iframe {
     });
 }
 
-        // Función para mostrar la hora local y la diferencia con la hora de Nueva York
-        function displayMarketHours() {
-            const localTime = new Date();
-            const nyTime = new Date(localTime.toLocaleString("en-US", { timeZone: "America/New_York" }));
-            const londonTime = new Date(localTime.toLocaleString("en-US", { timeZone: "Europe/London" }));
-            const tokyoTime = new Date(localTime.toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
-            const sydneyTime = new Date(localTime.toLocaleString("en-US", { timeZone: "Australia/Sydney" }));
+// Función para mostrar la hora local y la diferencia con la hora de Nueva York
+function displayMarketHours() {
+    const localTime = new Date();
+    const nyTime = new Date(localTime.toLocaleString("en-US", { timeZone: "America/New_York" }));
+    const londonTime = new Date(localTime.toLocaleString("en-US", { timeZone: "Europe/London" }));
+    const tokyoTime = new Date(localTime.toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
+    const sydneyTime = new Date(localTime.toLocaleString("en-US", { timeZone: "Australia/Sydney" }));
 
-            document.getElementById("nyMarket").textContent = `Nueva York: ${nyTime.toLocaleTimeString()} (${nyTime.getHours() - localTime.getHours()} horas)`;
-            document.getElementById("londonMarket").textContent = `Londres: ${londonTime.toLocaleTimeString()} (${londonTime.getHours() - localTime.getHours()} horas)`;
-            document.getElementById("tokyoMarket").textContent = `Tokio: ${tokyoTime.toLocaleTimeString()} (${tokyoTime.getHours() - localTime.getHours()} horas)`;
-            document.getElementById("sydneyMarket").textContent = `Sídney: ${sydneyTime.toLocaleTimeString()} (${sydneyTime.getHours() - localTime.getHours()} horas)`;
-        }
+    document.getElementById("nyMarket").textContent = `Nueva York: ${nyTime.toLocaleTimeString()} (${nyTime.getHours() - localTime.getHours()} horas)`;
+    document.getElementById("londonMarket").textContent = `Londres: ${londonTime.toLocaleTimeString()} (${londonTime.getHours() - localTime.getHours()} horas)`;
+    document.getElementById("tokyoMarket").textContent = `Tokio: ${tokyoTime.toLocaleTimeString()} (${tokyoTime.getHours() - localTime.getHours()} horas)`;
+    document.getElementById("sydneyMarket").textContent = `Sídney: ${sydneyTime.toLocaleTimeString()} (${sydneyTime.getHours() - localTime.getHours()} horas)`;
+}
 
-        // Mostrar la hora de los mercados al cargar la página
-        document.addEventListener("DOMContentLoaded", displayMarketHours);
+// Mostrar la hora de los mercados al cargar la página y actualizar cada minuto
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarHorariosMercados();
+    displayMarketHours();
+
+    // Actualizar cada minuto
+    setInterval(() => {
+        mostrarHorariosMercados();
+        displayMarketHours();
+    }, 60000);
+});
+
 
         
 
