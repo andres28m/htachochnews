@@ -973,6 +973,7 @@ iframe {
             // Condiciones para actualizar las señales
             if (rsi < 30 && ema > sma) {
                 signals["1m"] = 'Strong Buy';
+                alert("Strong Buy!");
             }
             if (rsi < 40 && ema > sma) {
                 signals["5m"] = 'Buy';
@@ -982,12 +983,15 @@ iframe {
             }
             if (rsi > 80 && ema < sma) {
                 signals["1h"] = 'Strong Sell';
+                alert("Strong Sell!"); 
             }
             if (rsi > 90 && ema < sma) {
                 signals["4h"] = 'Strong Sell';
+                alert("Strong Sell!");
             }
             if (rsi > 90 && ema < sma) {
                 signals["1d"] = 'Strong Sell';
+                alert("Strong Sell!");
             }
 
             // Actualización del HTML con colores basados en las señales
